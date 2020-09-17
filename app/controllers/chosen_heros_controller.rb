@@ -1,0 +1,2 @@
+class ChosenHerosController < ApplicationController
+end
