@@ -29,18 +29,23 @@ h2= Hero.create(main_attribute:"Rap")
 h3= Hero.create(main_attribute:"Pop")
 h4= Hero.create(main_attribute:"Swing")
 
-h1.sprite.attach(io: open('https://i.ibb.co/tYS7nJw/3-3-PIRATE-HURT-006.png'), filename: 'pirate.PNG', content_type: 'image/png')
+h1.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Pitch/3_3-PIRATE_HURT_006.png'), filename: 'pirate.png', content_type: 'image/png')
 puts "put h1 sprite"
-h2.sprite.attach(io: open('https://i.ibb.co/tYS7nJw/3-3-PIRATE-HURT-006.png'), filename: 'pirate.PNG', content_type: 'image/png')
+h2.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Pitch/Fairy_02__JUMP_006.png'), filename: 'fairy1.png', content_type: 'image/png')
 puts "put h2 sprite"
-h3.sprite.attach(io: open('https://i.ibb.co/tYS7nJw/3-3-PIRATE-HURT-006.png'), filename: 'pirate.PNG', content_type: 'image/png')
+h3.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Pitch/Fairy_03__WALK_006.png'), filename: 'fairy2.png', content_type: 'image/png')
 puts "put h3 sprite"
-h4.sprite.attach(io: open('https://i.ibb.co/tYS7nJw/3-3-PIRATE-HURT-006.png'), filename: 'pirate.PNG', content_type: 'image/png')
+h4.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Pitch/Knight_01__ATTACK_008.png'), filename: 'knight.png', content_type: 'image/png')
 puts "put h4 sprite"
 
+# # h1.sprite.attach(io: File.open('./3_3-PIRATE_HURT_006.png'), filename: 'pirate.PNG', content_type: 'image/png')
+# h1.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Pitch/3_3-PIRATE_HURT_006.png'), filename: 'pirate.png', content_type: 'image/png')
+# puts "put h1 sprite"
 
 
-c1 = ChosenHero.create(user:u1, hero:Hero.all.sample, name: "monster 1", reputation:34)
-c2 = ChosenHero.create(user:u2, hero:Hero.all.sample, name: "monster 31", reputation:14)
+
+c1 = ChosenHero.create(user:u1, hero:h1, name: "monster 1", reputation:34)
+puts "chosen hero id is #{c1.id}"
+c2 = ChosenHero.create(user:u2, hero:h4, name: "monster 31", reputation:14)
 c3 = ChosenHero.create(user:User.all.sample, hero:Hero.all.sample, name: "monster 2", reputation:31)
 c4 = ChosenHero.create(user:u3, hero:Hero.all.sample, name: "monster 441", reputation:54)
