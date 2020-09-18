@@ -1,7 +1,9 @@
 class TasksController < ApplicationController
+    skip_before_action :authorized, only: :index
     def index
         # tasks =  Task.find_by(user: current_user)
         tasks = Task.all
+        
         render json: tasks
     end
 
@@ -18,10 +20,12 @@ class TasksController < ApplicationController
         task = Task.find(params[:id])
 
         if task.user == current_user
-
+            task.update(task_params)
+            render json: task, status: :ok
+        else
+            head :unauthorized
+        end
     end
-
-
 
 
     def destroy
@@ -31,6 +35,7 @@ class TasksController < ApplicationController
             render json: { messages: "task successfully removed"}, status: :ok
         else
             render json: {error: "You are not authorized to delete this task", messages: task.errors.full_messages}, status: :unauthorized
+        end
     end
 
 
