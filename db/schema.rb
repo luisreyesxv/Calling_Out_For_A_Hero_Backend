@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_18_083242) do
+ActiveRecord::Schema.define(version: 2020_09_22_210443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2020_09_18_083242) do
     t.bigint "user_id", null: false
     t.bigint "hero_id", null: false
     t.string "name"
-    t.integer "reputation"
+    t.integer "reputation", default: 5
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["hero_id"], name: "index_chosen_heros_on_hero_id"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 2020_09_18_083242) do
     t.string "main_attribute"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "width"
+    t.integer "height"
   end
 
   create_table "tasks", force: :cascade do |t|
