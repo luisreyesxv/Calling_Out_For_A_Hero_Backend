@@ -1,8 +1,7 @@
 class TasksController < ApplicationController
-    skip_before_action :authorized, only: :index
+    skip_before_action :authorized
     def index
-        # tasks =  Task.find_by(user: current_user)
-        tasks = Task.all
+        tasks =  Task.where(user: current_user)
         
         render json: tasks
     end

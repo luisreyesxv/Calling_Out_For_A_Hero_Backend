@@ -1,5 +1,5 @@
 class ChosenHerosController < ApplicationController
-    skip_before_action :authorized, only: :show
+    skip_before_action :authorized, only: :index
     def index
         chosenhero= ChosenHero.all
         render json: chosenhero, status: :ok
