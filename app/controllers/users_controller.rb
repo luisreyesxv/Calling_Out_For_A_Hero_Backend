@@ -17,7 +17,7 @@ class UsersController < ApplicationController
         #  byebug
         if user &&  user.authenticate(user_params[:password])
             token= encode_token(user_id: user.id)
-             render json: {user: UserSerializer.new(user) , jwt: token}, status: :ok
+             render json: {user: UserSerializer.new(user) , jwt: token, sprite: url_for(user.hero.sprite), chosen_hero: user.chosen_hero}, status: :ok
         else
             render json: {error: "User/password combination does not exist, Please Try Again"} , status: :bad_request
         end
