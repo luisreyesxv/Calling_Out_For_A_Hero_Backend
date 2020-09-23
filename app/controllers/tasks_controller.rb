@@ -2,13 +2,15 @@ class TasksController < ApplicationController
     skip_before_action :authorized
     def index
         tasks =  Task.where(user: current_user)
-        
+        # tasks = Task.all
+    #   byebug
         render json: tasks
     end
 
     def create
-        task = Task.create(task_params)
-        if task.valid?
+        task = Task.new(task_params)
+        task.user = current_user
+        if task.save
             render json: task, status: :created
         else
             render json: {error: "Task was not able to be created", messages: task.errors.full_messages}, status: :not_acceptable
