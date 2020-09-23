@@ -16,6 +16,7 @@ Hero.destroy_all
 u1=User.create(name: "testing 1",email: "fake@email.com",password: "totallyfake")
 u2=User.create(name: "luis",email: "luis2@email.com",password: "totallyfake")
 u3=User.create(name: "luis3",email: "fake3@email.com",password: "totallyfake")
+u4=User.create(name: "Julia Zhou",email: "luis@email.com",password: "totallyfake")
 
 t1=Task.create(user: u1,title:"title1",description:"testing random description",date: Time.now())
 t2=Task.create(user: u2,title:"title12",description:"testing random description",date: Time.now(), completed?: true)
@@ -25,22 +26,24 @@ t5=Task.create(user: User.all.sample,title:"title5",description:"testing random 
 
 
 h1= Hero.create(main_attribute:"Country", width: 816.80, height: 593.50)
-h2= Hero.create(main_attribute:"Rap", width: 740, height: 805.66)
-h3= Hero.create(main_attribute:"Pop")
-h4= Hero.create(main_attribute:"Swing")
+h2= Hero.create(main_attribute:"Rap", width: 740, height: 508.66.66)
+h3= Hero.create(main_attribute:"Pop", width: 966, height: 588)
+h4= Hero.create(main_attribute:"Swing", width: 1005.6, height: 568.67)
 
 h1.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Elves/1/sheet pieces/cropped sprite sheet.png'), filename: 'elf 1.png', content_type: 'image/png')
 puts "put h1 sprite"
 h2.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Fairies/3/sheet pieces/spritesheet.png'), filename: 'Dragonfly Peppershimmer.png', content_type: 'image/png')
 puts "put h2 sprite"
-h3.sprite.attach(io: File.open('mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Woman Warriors/2/sheet pieces/spritesheet.png'), filename: 'Freya Wilddottir.png', content_type: 'image/png')
+h3.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Woman Warriors/2/sheet pieces/spritesheet.png'), filename: 'Freya Wilddottir.png', content_type: 'image/png')
 puts "put h3 sprite"
-h4.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Pitch/Knight_01__ATTACK_008.png'), filename: 'knight.png', content_type: 'image/png')
+h4.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Knights/1_KNIGHT/sheet pieces/spritesheet.png'), filename: 'Bertrant the Horrific.png', content_type: 'image/png')
 puts "put h4 sprite"
 
 # # h1.sprite.attach(io: File.open('./3_3-PIRATE_HURT_006.png'), filename: 'pirate.PNG', content_type: 'image/png')
 # h1.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Pitch/3_3-PIRATE_HURT_006.png'), filename: 'pirate.png', content_type: 'image/png')
 # puts "put h1 sprite"
+
+# h4.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Pitch/Knight_01__ATTACK_008.png'), filename: 'knight.png', content_type: 'image/png')
 
 
 
