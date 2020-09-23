@@ -13,6 +13,7 @@ class ChosenHerosController < ApplicationController
 
     def hire
         chosen_hero = ChosenHero.hire(user: current_user, params: chosen_hero_params)
+        render json: { sprite:  {url: url_for(chosen_hero.hero.sprite), width: chosen_hero.hero.width, height: chosen_hero.hero.height}, chosen_hero: ChosenHeroSerializer.new(chosen_hero)}, status: :created
     end
 
 

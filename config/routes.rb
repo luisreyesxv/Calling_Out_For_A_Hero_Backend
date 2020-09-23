@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/chosen_heros', to: "chosen_heros#index"
   post "/hire", to: "chosen_heros#hire"
+  
   post '/register', to: 'users#register'
   post '/login', to: 'users#login'
   get '/users', to: 'users#index'
