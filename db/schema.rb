@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_22_210443) do
+ActiveRecord::Schema.define(version: 2020_09_24_043907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 2020_09_22_210443) do
     t.string "main_attribute"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "width"
-    t.integer "height"
+    t.float "width"
+    t.float "height"
   end
 
   create_table "tasks", force: :cascade do |t|

@@ -27,7 +27,7 @@ t5=Task.create(user: User.all.sample,title:"title5",description:"testing random 
 
 h1= Hero.create(main_attribute:"Country", width: 816.80, height: 593.50)
 h2= Hero.create(main_attribute:"Rap", width: 740, height: 508.66)
-h3= Hero.create(main_attribute:"Pop", width: 966, height: 588)
+h3= Hero.create(main_attribute:"Pop", width: 966.6, height: 588)
 h4= Hero.create(main_attribute:"Swing", width: 1005.6, height: 568.67)
 
 h1.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Elves/1/sheet pieces/cropped sprite sheet.png'), filename: 'elf 1.png', content_type: 'image/png')
