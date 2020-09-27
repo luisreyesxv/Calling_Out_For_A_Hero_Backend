@@ -9,7 +9,7 @@ class TasksController < ApplicationController
 
     def create
         
-        task = Task.new(task_params)
+        task = Task.make_new_task(task_params)
         task.user = current_user
         if task.save
             render json: task, status: :created
