@@ -19,7 +19,7 @@ class ChosenHero < ApplicationRecord
 
 
     def self.randomHero (user:)
-     return ChosenHero.create(user: user, hero: Hero.first(3).sample, name: "#{Faker::Games::ElderScrolls.first_name} #{Faker::Games::ElderScrolls.last_name}", reputation: 0, flavor: ChosenHero.testing)
+     return ChosenHero.create(user: user, hero: Hero.first(3).sample, name: "#{Faker::Games::ElderScrolls.first_name} #{Faker::Games::ElderScrolls.last_name}", reputation: 0, flavor: ChosenHero.creatingFlavor)
     end
 
 
@@ -30,7 +30,7 @@ class ChosenHero < ApplicationRecord
 
     private 
 
-  def self.testing
+  def self.creatingFlavor
     bioData = YAML.load(File.read("bio.yml"))
     trait = bioData[bioData.keys.sample][:Trait]
     while !trait 
@@ -50,9 +50,6 @@ class ChosenHero < ApplicationRecord
     end
     flaw = flaw.sample
 
-    flavor = {trait: trait, bond: bond, flaw: flaw}
-
-    # byebug
     return flavor
     end
 
