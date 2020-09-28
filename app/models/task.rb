@@ -14,6 +14,16 @@ class Task < ApplicationRecord
   end
 
 
+  def self.update_task_and_chosen_hero(task:, params: )
+      task.update(:params)
+
+      if params["completed?"]
+       chosen_hero= ChosenHero.find_by(user: task.user )
+       chosen_hero.raise_reputation
+      end
+
+
+  end
 
 
 

@@ -22,7 +22,7 @@ class TasksController < ApplicationController
         task = Task.find(params[:id])
 
         if task.user == current_user
-            task.update(task_params)
+            task.update_task_and_chosen_hero(task:task, params:task_params)
             render json: task, status: :ok
         else
             head :unauthorized

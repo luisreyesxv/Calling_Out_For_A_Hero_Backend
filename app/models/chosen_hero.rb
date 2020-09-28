@@ -23,6 +23,20 @@ class ChosenHero < ApplicationRecord
     end
 
 
+    def raise_reputation
+      self.reputation+=15
+
+      if self.save && self.reputation >=100 && self.hero.level == 1
+        hero = Hero.where(main_attribute: self.hero.main_attribute,level: 2).sample
+        self.hero= hero
+        self.save
+      end
+
+
+
+    end
+
+
     # def self.randomHero(userObj: {id: 152,name: "swag"})
     #  return ChosenHero.new(user_id: userObj[:id], hero: Hero.first(3).sample, name: "Random McGee", reputation: 0)
     # end
@@ -49,7 +63,7 @@ class ChosenHero < ApplicationRecord
       flaw= bioData[bioData.keys.sample][:Flaw]
     end
     flaw = flaw.sample
-
+    flavor = {trait: trait, bond: bond, flaw: flaw}
     return flavor
     end
 
