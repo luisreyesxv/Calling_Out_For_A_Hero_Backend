@@ -21,7 +21,7 @@ class ChosenHerosController < ApplicationController
 
         if chosen_hero.user == current_user
             chosen_hero.update(chosen_hero_params)
-            render json: { sprite:  {url: url_for(chosen_hero.hero.sprite), width: chosen_hero.hero.width, height: chosen_hero.hero.height}, chosen_hero: ChosenHeroSerializer.new(chosen_hero)}, status: :ok
+            render json: { sprite:  {url: url_for(chosen_hero.hero.sprite), width: chosen_hero.hero.width, height: chosen_hero.hero.height,steps:chosen_hero.hero.steps}, chosen_hero: ChosenHeroSerializer.new(chosen_hero)}, status: :ok
         else
             head :unauthorized
         end

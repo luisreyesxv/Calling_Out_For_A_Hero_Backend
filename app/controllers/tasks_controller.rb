@@ -22,8 +22,10 @@ class TasksController < ApplicationController
         task = Task.find(params[:id])
 
         if task.user == current_user
-            task.update_task_and_chosen_hero(task:task, params:task_params)
-            render json: task, status: :ok
+            task.update_task_and_chosen_hero( params:task_params)
+            chosen_hero= ChosenHero.find_by(user: task.user)
+
+            render json: {task: task, sprite:  {url: url_for(chosen_hero.hero.sprite), width: chosen_hero.hero.width, height: chosen_hero.hero.height ,steps:chosen_hero.hero.steps}, chosen_hero: ChosenHeroSerializer.new(chosen_hero)}, status: :ok
         else
             head :unauthorized
         end

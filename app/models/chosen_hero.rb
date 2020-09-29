@@ -50,7 +50,7 @@ class ChosenHero < ApplicationRecord
     while !trait 
       trait = bioData[bioData.keys.sample][:Trait]
     end
-    trait = trait.sample(2).join()
+    trait = trait.sample(2).join(" Also, ")
 
     bond = bioData[bioData.keys.sample][:Bond]
     while !bond 

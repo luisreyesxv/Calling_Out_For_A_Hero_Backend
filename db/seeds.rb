@@ -17,7 +17,7 @@ def generating_random_flavor_text
         while !trait 
           trait = bioData[bioData.keys.sample][:Trait]
         end
-        trait = trait.sample(2).join()
+        trait = trait.sample(2).join(" Also, ")
     
         bond = bioData[bioData.keys.sample][:Bond]
         while !bond 
@@ -55,7 +55,7 @@ t5=Task.create(user: User.all.sample,title:"title5",description:"testing random 
 
 h1= Hero.create(main_attribute:"Elf", width: 816.80, height: 593.50, steps: 10, level:1)
 h2= Hero.create(main_attribute:"Fairy", width: 740, height: 508.66, steps: 10, level:1)
-h3= Hero.create(main_attribute:"WW", width: 966.6, height: 588, steps: 10, level:2)
+h3= Hero.create(main_attribute:"Elf", width: 966.6, height: 588, steps: 10, level:2)
 h4= Hero.create(main_attribute:"Knight", width: 1005.6, height: 568.67, steps: 10, level:2)
 
 h1.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Elves/1/sheet pieces/cropped sprite sheet.png'), filename: 'elf 1.png', content_type: 'image/png')
