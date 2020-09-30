@@ -9,17 +9,36 @@ class ChosenHero < ApplicationRecord
 
 
   def self.hire(user:, params: )
+    # byebug
+
     if params[:method] == "random"
      hiredHero = self.randomHero(user: user)
      return hiredHero
     end
 
+      if params[:method] == "specific"
+        hiredHero = self.specificHero(user: user, house: params[:house])
+        return hiredHero
+      end
     
+  end
+
+  def self.specificHero (user:, house:)
+
+    hero= Hero.where(main_attribute: house, level: 1).sample
+    # if hero.length >1
+    #   byebug
+    #   hero = hero.sample[0]
+    # end
+
+
+    # byebug
+    return ChosenHero.create(user: user, hero: hero, name: "#{Faker::Games::ElderScrolls.first_name} #{Faker::Games::ElderScrolls.last_name}", reputation: 0, flavor: ChosenHero.creatingFlavor)
   end
 
 
     def self.randomHero (user:)
-     return ChosenHero.create(user: user, hero: Hero.first(3).sample, name: "#{Faker::Games::ElderScrolls.first_name} #{Faker::Games::ElderScrolls.last_name}", reputation: 0, flavor: ChosenHero.creatingFlavor)
+     return ChosenHero.create(user: user, hero: Hero.where(level:1).sample, name: "#{Faker::Games::ElderScrolls.first_name} #{Faker::Games::ElderScrolls.last_name}", reputation: 0, flavor: ChosenHero.creatingFlavor)
     end
 
 
@@ -36,10 +55,6 @@ class ChosenHero < ApplicationRecord
 
     end
 
-
-    # def self.randomHero(userObj: {id: 152,name: "swag"})
-    #  return ChosenHero.new(user_id: userObj[:id], hero: Hero.first(3).sample, name: "Random McGee", reputation: 0)
-    # end
 
 
     private 

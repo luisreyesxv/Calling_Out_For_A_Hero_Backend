@@ -13,7 +13,7 @@ class ChosenHerosController < ApplicationController
 
     def hire
         chosen_hero = ChosenHero.hire(user: current_user, params: chosen_hero_params)
-        render json: { sprite:  {url: url_for(chosen_hero.hero.sprite), width: chosen_hero.hero.width, height: chosen_hero.hero.height, steps: chosen_hero.hero.steps}, chosen_hero: ChosenHeroSerializer.new(chosen_hero)}, status: :created
+        render json: { sprite: HeroSerializer.new(chosen_hero.hero), chosen_hero: ChosenHeroSerializer.new(chosen_hero)}, status: :created
     end
 
     def update
@@ -21,7 +21,7 @@ class ChosenHerosController < ApplicationController
 
         if chosen_hero.user == current_user
             chosen_hero.update(chosen_hero_params)
-            render json: { sprite:  {url: url_for(chosen_hero.hero.sprite), width: chosen_hero.hero.width, height: chosen_hero.hero.height,steps:chosen_hero.hero.steps}, chosen_hero: ChosenHeroSerializer.new(chosen_hero)}, status: :ok
+            render json: { sprite:  HeroSerializer.new(chosen_hero.hero), chosen_hero: ChosenHeroSerializer.new(chosen_hero)}, status: :ok
         else
             head :unauthorized
         end
@@ -32,7 +32,7 @@ class ChosenHerosController < ApplicationController
     private
 
     def chosen_hero_params
-        params.require(:chosen_hero).permit(:name,:reputation,:spotify,:method)
+        params.require(:chosen_hero).permit(:name,:reputation,:spotify,:method, :house)
     end
 
 

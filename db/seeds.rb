@@ -57,6 +57,7 @@ h1= Hero.create(main_attribute:"Elf", width: 816.80, height: 593.50, steps: 10, 
 h2= Hero.create(main_attribute:"Fairy", width: 740, height: 508.66, steps: 10, level:1)
 h3= Hero.create(main_attribute:"Elf", width: 966.6, height: 588, steps: 10, level:2)
 h4= Hero.create(main_attribute:"Knight", width: 1005.6, height: 568.67, steps: 10, level:2)
+h5= Hero.create(main_attribute:"Pirate", width: 446, height: 390, steps: 7, level:1)
 
 h1.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Elves/1/sheet pieces/cropped sprite sheet.png'), filename: 'elf 1.png', content_type: 'image/png')
 puts "put h1 sprite"
@@ -66,6 +67,8 @@ h3.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprite
 puts "put h3 sprite"
 h4.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Knights/1_KNIGHT/sheet pieces/spritesheet.png'), filename: 'knight 1.png', content_type: 'image/png')
 puts "put h4 sprite"
+h5.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Pirates/1/sheet pieces/spritesheet.png'), filename: 'Pirate 1.png', content_type: 'image/png')
+puts "put h5 sprite"
 
 # # h1.sprite.attach(io: File.open('./3_3-PIRATE_HURT_006.png'), filename: 'pirate.PNG', content_type: 'image/png')
 # h1.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Pitch/3_3-PIRATE_HURT_006.png'), filename: 'pirate.png', content_type: 'image/png')

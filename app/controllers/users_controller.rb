@@ -17,7 +17,7 @@ class UsersController < ApplicationController
         #  byebug
         if user &&  user.authenticate(user_params[:password])
             token= encode_token(user_id: user.id)
-            hero_sprite = user.hero ? {url: url_for(user.hero.sprite), width: user.hero.width, height: user.hero.height, steps: user.hero.steps} : nil
+            hero_sprite = user.hero ? HeroSerializer.new(user.hero) : nil
              
             chosen_hero = user.chosen_hero ? ChosenHeroSerializer.new(user.chosen_hero) : nil
              render json: {user: UserSerializer.new(user) , jwt: token, sprite: hero_sprite, chosen_hero: chosen_hero}, status: :ok

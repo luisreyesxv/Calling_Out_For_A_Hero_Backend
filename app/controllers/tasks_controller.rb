@@ -2,8 +2,6 @@ class TasksController < ApplicationController
     skip_before_action :authorized
     def index
         tasks =  Task.where(user: current_user)
-        # tasks = Task.all
-    #   byebug
         render json: tasks
     end
 
@@ -25,7 +23,7 @@ class TasksController < ApplicationController
             task.update_task_and_chosen_hero( params:task_params)
             chosen_hero= ChosenHero.find_by(user: task.user)
 
-            render json: {task: task, sprite:  {url: url_for(chosen_hero.hero.sprite), width: chosen_hero.hero.width, height: chosen_hero.hero.height ,steps:chosen_hero.hero.steps}, chosen_hero: ChosenHeroSerializer.new(chosen_hero)}, status: :ok
+            render json: {task: task, sprite: HeroSerializer.new(chosen_hero.hero), chosen_hero: ChosenHeroSerializer.new(chosen_hero)}, status: :ok
         else
             head :unauthorized
         end
