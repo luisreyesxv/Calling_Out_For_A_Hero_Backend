@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     end
 
     def register
-        user= User.create(user_params)
+        user= User.registerUser(user_params)
         if user.valid?
             token= encode_token(user_id: user.id)
             render json: {user:UserSerializer.new(user), jwt: token, sprite: nil, chosen_hero: nil}, status: :created
