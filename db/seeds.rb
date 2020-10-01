@@ -41,10 +41,10 @@ quest_flavors = ["A noblewoman named Haine seeks a company of adventurers to exp
 
 
 
-u1=User.create(name: "testing 1",email: "fake@email.com",password: "totallyfake")
-u2=User.create(name: "luis",email: "luis2@email.com",password: "totallyfake")
-u3=User.create(name: "luis3",email: "fake3@email.com",password: "totallyfake")
-u4=User.create(name: "Julia Zhou",email: "luis@email.com",password: "totallyfake")
+u1=User.create(name: "demo",email: "demo@email.com",password: "password")
+u2=User.create(name: "luis",email: "demo2@email.com",password: "password")
+u3=User.create(name: "luis",email: "demo3@email.com",password: "password")
+u4=User.create(name: "demo4",email: "demo4@email.com",,password: "password")
 
 t1=Task.create(user: u1,title:"title1",description:"testing random description",date: Time.now(), flavor: quest_flavors.sample)
 t2=Task.create(user: u2,title:"title12",description:"testing random description",date: Time.now(), completed?: true ,flavor: quest_flavors.sample)
@@ -53,21 +53,24 @@ t4=Task.create(user: u1,title:"title4",description:"testing random description",
 t5=Task.create(user: User.all.sample,title:"title5",description:"testing random description", flavor: quest_flavors.sample ,date: Time.now())
 
 
-h1= Hero.create(main_attribute:"Elf", width: 816.80, height: 593.50, steps: 10, level:1)
-h2= Hero.create(main_attribute:"Fairy", width: 740, height: 508.66, steps: 10, level:1)
-h3= Hero.create(main_attribute:"Elf", width: 966.6, height: 588, steps: 10, level:2)
-h4= Hero.create(main_attribute:"Knight", width: 1005.6, height: 568.67, steps: 10, level:2)
-h5= Hero.create(main_attribute:"Pirate", width: 446, height: 390, steps: 7, level:1)
+h1= Hero.create(main_attribute:"Elf", width: 204.20, height: 148.33333333, steps: 10, level:1)
+h2= Hero.create(main_attribute:"Fairy", width: 185, height: 127.166666666666666667, steps: 10, level:1)
+h3= Hero.create(main_attribute:"WW", width: 242.7, height: 241, steps: 10, level:1)
+h4= Hero.create(main_attribute:"Knight", width: 251.40, height: 142.166666666666667, steps: 10, level:1)
+h5= Hero.create(main_attribute:"Pirate", width: 298.8571429, height: 156.8, steps: 7, level:1)
+h6= Hero.create(main_attribute:"Troll", width: 210.20, height: 158.83333333, steps: 10, level:1)
 
-h1.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Elves/1/sheet pieces/cropped sprite sheet.png'), filename: 'elf 1.png', content_type: 'image/png')
+h1.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Elves/1/sheet pieces/fixed spritesheet.png'), filename: 'elf 1.png', content_type: 'image/png')
 puts "put h1 sprite"
-h2.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Fairies/3/sheet pieces/spritesheet.png'), filename: 'fairy 3.png', content_type: 'image/png')
+h2.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Fairies/3/sheet pieces/fixed spritesheet.png'), filename: 'fairy 3.png', content_type: 'image/png')
 puts "put h2 sprite"
-h3.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Woman Warriors/2/sheet pieces/spritesheet.png'), filename: 'ww 2.png', content_type: 'image/png')
+h3.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Woman Warriors/2/sheet pieces/fixed spritesheet.png'), filename: 'ww 2.png', content_type: 'image/png')
 puts "put h3 sprite"
-h4.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Knights/1_KNIGHT/sheet pieces/spritesheet.png'), filename: 'knight 1.png', content_type: 'image/png')
+h4.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Knights/1_KNIGHT/sheet pieces/fixed spritesheet.png'), filename: 'knight 1.png', content_type: 'image/png')
 puts "put h4 sprite"
-h5.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Pirates/1/sheet pieces/spritesheet.png'), filename: 'Pirate 1.png', content_type: 'image/png')
+h5.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Pirates/1/sheet pieces/fixed spritesheet.png'), filename: 'Pirate 1.png', content_type: 'image/png')
+puts "put h5 sprite"
+h6.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Troll/1_TROLL/sheet pieces/fixed spritesheet.png'), filename: 'Troll 1.png', content_type: 'image/png')
 puts "put h5 sprite"
 
 # # h1.sprite.attach(io: File.open('./3_3-PIRATE_HURT_006.png'), filename: 'pirate.PNG', content_type: 'image/png')
@@ -80,6 +83,6 @@ puts "put h5 sprite"
 
 c1 = ChosenHero.create(user:u1, hero:h1, name: "Elfberto", reputation:34,flavor:generating_random_flavor_text)
 puts "chosen hero id is #{c1.id}"
-c2 = ChosenHero.create(user:u2, hero:h4, name: "Dread Pirate Roberto", flavor:generating_random_flavor_text, reputation:14)
 c3 = ChosenHero.create(user:u4, hero:h2, name: "Dragonfly Peppershimmer", flavor:generating_random_flavor_text, reputation:31)
 c4 = ChosenHero.create(user:u3, hero:h3, name: "Freya Wilddottir", flavor:generating_random_flavor_text, reputation:54)
+c2 = ChosenHero.create(user:u2, hero:h4, name: "Dread Pirate Roberto", flavor:generating_random_flavor_text, reputation:14)
