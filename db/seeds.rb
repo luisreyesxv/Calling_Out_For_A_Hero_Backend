@@ -44,7 +44,7 @@ quest_flavors = ["A noblewoman named Haine seeks a company of adventurers to exp
 u1=User.create(name: "demo",email: "demo@email.com",password: "password")
 u2=User.create(name: "luis",email: "demo2@email.com",password: "password")
 u3=User.create(name: "luis",email: "demo3@email.com",password: "password")
-u4=User.create(name: "demo4",email: "demo4@email.com",,password: "password")
+u4=User.create(name: "demo4",email: "demo4@email.com",password: "password")
 
 t1=Task.create(user: u1,title:"title1",description:"testing random description",date: Time.now(), flavor: quest_flavors.sample)
 t2=Task.create(user: u2,title:"title12",description:"testing random description",date: Time.now(), completed?: true ,flavor: quest_flavors.sample)
@@ -71,7 +71,7 @@ puts "put h4 sprite"
 h5.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Pirates/1/sheet pieces/fixed spritesheet.png'), filename: 'Pirate 1.png', content_type: 'image/png')
 puts "put h5 sprite"
 h6.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Troll/1_TROLL/sheet pieces/fixed spritesheet.png'), filename: 'Troll 1.png', content_type: 'image/png')
-puts "put h5 sprite"
+puts "put h6 sprite"
 
 # # h1.sprite.attach(io: File.open('./3_3-PIRATE_HURT_006.png'), filename: 'pirate.PNG', content_type: 'image/png')
 # h1.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Pitch/3_3-PIRATE_HURT_006.png'), filename: 'pirate.png', content_type: 'image/png')
