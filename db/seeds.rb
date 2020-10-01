@@ -57,7 +57,7 @@ h1= Hero.create(main_attribute:"Elf", width: 204.20, height: 148.33333333, steps
 h2= Hero.create(main_attribute:"Fairy", width: 185, height: 127.166666666666666667, steps: 10, level:1)
 h3= Hero.create(main_attribute:"WW", width: 242.7, height: 241, steps: 10, level:1)
 h4= Hero.create(main_attribute:"Knight", width: 251.40, height: 142.166666666666667, steps: 10, level:1)
-h5= Hero.create(main_attribute:"Pirate", width: 298.8571429, height: 156.8, steps: 7, level:1)
+h5= Hero.create(main_attribute:"Pirate", width: 298.8571429, height: 261.3333333, steps: 7, level:1)
 h6= Hero.create(main_attribute:"Troll", width: 210.20, height: 158.83333333, steps: 10, level:1)
 
 h1.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Elves/1/sheet pieces/fixed spritesheet.png'), filename: 'elf 1.png', content_type: 'image/png')
