@@ -1,10 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
 
 User.destroy_all
 Task.destroy_all
@@ -41,15 +35,15 @@ quest_flavors = ["A noblewoman named Haine seeks a company of adventurers to exp
 
 
 
-u1=User.create(name: "demo",email: "demo@email.com",password: "password")
-u2=User.create(name: "luis",email: "demo2@email.com",password: "password")
+u1=User.create(name: "demo",email: "luis@email.com",password: "password")
+u2=User.create(name: "luis",email: "luis2@email.com",password: "password")
 u3=User.create(name: "luis",email: "demo3@email.com",password: "password")
 u4=User.create(name: "demo4",email: "demo4@email.com",password: "password")
 
-t1=Task.create(user: u1,title:"title1",description:"testing random description",date: Time.now(), flavor: quest_flavors.sample)
+t1=Task.create(user: u1,title:"Call Out For A Hero ",description:"Welcome to Calling Out For A Hero. After you have called out to a hero Go to the Hall of Quests and register a new quest. Schedule it for whenever you want and build up your reputation.",date: Time.now(), flavor: quest_flavors.sample)
 t2=Task.create(user: u2,title:"title12",description:"testing random description",date: Time.now(), completed?: true ,flavor: quest_flavors.sample)
 t3=Task.create(user: u3,title:"title3",description:"testing random description",date: Time.now() ,flavor: quest_flavors.sample)
-t4=Task.create(user: u1,title:"title4",description:"testing random description",date: Time.now(), flavor: quest_flavors.sample, completed?: true)
+t4=Task.create(user: u1,title:"Call Out For A Hero ",description:"Welcome to Calling Out For A Hero. After you have called out to a hero Go to the Hall of Quests and register a new quest. Schedule it for whenever you want and build up your reputation.",date: Time.now(), flavor: quest_flavors.sample, completed?: true)
 t5=Task.create(user: User.all.sample,title:"title5",description:"testing random description", flavor: quest_flavors.sample ,date: Time.now())
 
 

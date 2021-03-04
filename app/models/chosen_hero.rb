@@ -9,7 +9,6 @@ class ChosenHero < ApplicationRecord
 
 
   def self.hire(user:, params: )
-    # byebug
 
     if params[:method] == "random"
      hiredHero = self.randomHero(user: user)
