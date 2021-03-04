@@ -61,30 +61,42 @@ For example
 ```ruby 
 h1.sprite.attach(io: File.open('/mnt/c/Users/Admin/Desktop/Projects/Mod 5/Sprites and Backgrounds/Elves/1/sheet pieces/fixed spritesheet.png'), filename: 'elf 1.png', content_type: 'image/png')
 ```
- If uploading spritesheet from a remote file on a url try using [this link](https://blog.eq8.eu/til/upload-remote-file-from-url-with-activestorage-rails.html) for help
+ If you are uploading a spritesheet from a remote file and you have the URL, try using [this link](https://blog.eq8.eu/til/upload-remote-file-from-url-with-activestorage-rails.html) for help
 
 
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### ChosenHero
+This model current serves as a joiner table for Hero and User tables. Also takes in the chosen name for the hero per user, individual flavor text, and reputation level. There are a few methods and files that are worth highlighting
 
-Things you may want to cover:
+There are current 2 ways to the API has to create a ChosenHero: `#specificHero` & `#randomHero`. The main difference is the if it choses a random level 1 hero from all the Heroes or a random level 1 hero from Heroes with the same `main_attribute` as the specific house given
 
-* Ruby version
+Both of those methods use `#creatingFlavor` to come up with ChosenHero's flavor text. This method uses the YML file **bio.yml** found in the **root** folder. The YML is made up of different text from D&D player's handbook.
 
-* System dependencies
 
-* Configuration
 
-* Database creation
 
-* Database initialization
+## Spritesheet Specifications
+The spritesheet document needs to be formatted in the following way.
+* For the purpose of spritesheet, it should be as a PNG file. It having transparency and layers should be the point. It should look at follows
+<br>
+    <img src="https://github.com/luisreyesxv/Calling_Out_For_A_Hero_Frontend/raw/master/public/images/enemies/1.png" height="200px" width="auto">
+* <p> Each frame of the animations should be separated by equal lengths. Something like <a href="https://spritegen.website-performance.org/" rel="nofollow">this sprite generator</a> should help make a sheet of equal distance. Try to make the distance between be 0. Also, the sprite sheet doesn't HAVE to be organized with each action given it's own row as long as it has the same number of frames for each action. It will be easier on the eyes though.
 
-* How to run the test suite
+* The "actions" & frames for each spritesheet should be organized in the following order
+    <p>
 
-* Services (job queues, cache servers, search engines, etc.)
+    1. idle(default actions)
+    2. attack
+    3. jump
+    4. run
+    5. die
+    6. hurt
+    </p>
 
-* Deployment instructions
+    The spritesheet does not necessarily need to have all of the actions present, but if you jump over a action but need one further in the list, it will better practice to include a blank set of frames to keep the action descriptions relevent. Best practice is to have the sprite sheet be complete with all actions though. **The actions should have the same amount of frames as all the other actions.
+</p>
 
-* ...
+
+
+
+
